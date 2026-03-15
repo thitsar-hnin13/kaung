@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOE KAUNG မွေးနေ့</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Padauk', sans-serif;
+            min-height: 100vh;
+            background: #0b1120;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .birthday-card {
+            background: #0f172a;
+            border: 2px solid #3b82f6;
+            border-radius: 30px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+        
+        .image-container {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .image-frame {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 3px solid #3b82f6;
+            padding: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .upload-btn {
+            margin-top: 12px;
+            padding: 8px 16px;
+            background: #1e293b;
+            border: 1px solid #3b82f6;
+            border-radius: 20px;
+            color: white;
+            font-family: 'Padauk', sans-serif;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        .upload-btn:hover {
+            background: #334155;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .content {
+            text-align: center;
+        }
+        
+        .title {
+            color: #60a5fa;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        
+        .name {
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 10px 0;
+            text-shadow: 0 0 10px #3b82f6;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #1e293b;
+            border: 1px solid #3b82f6;
+            border-radius: 30px;
+            padding: 8px 25px;
+            margin: 15px 0;
+            color: #60a5fa;
+            font-size: 1.3rem;
+        }
+        
+        .message {
+            color: #cbd5e1;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 20px 0;
+            padding: 15px;
+            border-top: 1px solid #334155;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .cake {
+            font-size: 3rem;
+            margin: 15px 0;
+        }
+        
+        .footer {
+            color: #94a3b8;
+            margin-top: 20px;
+            font-size: 1rem;
+            border-top: 1px solid #334155;
+            padding-top: 15px;
+        }
+        
+        @media (max-width: 500px) {
+            .name { font-size: 2.5rem; }
+            .title { font-size: 1.5rem; }
+            .message { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-card">
+        <!-- Image Section -->
+        <div class="image-container">
+            <div class="image-frame">
+                <img id="profile-img" src="img/kaung.png" alt="Profile" onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';">
+                <div class="image-placeholder" id="placeholder" style="display: none;">
+                    MK
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <div class="title">HAPPY BIRTHDAY</div>
+            <div class="name">MOE KAUNG</div>
+            
+            <div class="badge">
+                🎂 မွေးနေ့ 🎂
+            </div>
+            
+            <div class="message">
+                ကိုယ်စိတ်နှစ်ဖြာ ချမ်းသာပါစေ<br>
+                ဆန္ဒတိုင်း ပြည့်ဝပါစေ
+            </div>
+            
+            <div class="cake">
+                🎂 🕯️ 🎂
+            </div>
+            
+            <div class="footer">
+                ၂၀၂၆ | မွေးနေ့ ဂုဏ်ပြုလွှာ
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // ပုံရှိမရှိ စစ်မယ်
+        window.onload = function() {
+            const profileImg = document.getElementById('profile-img');
+            const placeholder = document.getElementById('placeholder');
+            
+            // ပုံပေါ်မပေါ် စစ်မယ်
+            if (profileImg.complete && profileImg.naturalHeight !== 0) {
+                // ပုံရှိရင်
+                profileImg.style.display = 'block';
+                placeholder.style.display = 'none';
+            } else {
+                // ပုံမရှိရင်
+                profileImg.style.display = 'none';
+                placeholder.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>
